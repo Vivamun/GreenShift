@@ -1,0 +1,5 @@
+/bin/
+
+*.class
+
+bin/data/sinesection/biomes.txt
