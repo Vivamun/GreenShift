@@ -2,4 +2,4 @@ BiomeName: Boiler
 #The name of the biome this is generated as.
 #Must have a match in biomes.txt, or this will not be generated
 Description: A hot, steamy room full of water boilers for heat radiation throughout the ship.
-#A brief description of the room.
+#A brief description of the room. Called whenever a player tries to inspect the room.
