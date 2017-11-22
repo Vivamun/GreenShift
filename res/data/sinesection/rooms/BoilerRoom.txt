@@ -1,5 +1,5 @@
 BiomeName: Boiler
-//The name of the biome this is generated as.
-//Must have a match in biomes.txt, or this will not be generated
-Description: A hot and steamy room full of water boilers for heat radiation throughout the ship.
-//A brief description of the room. Currently cannot have commas.
+#The name of the biome this is generated as.
+#Must have a match in biomes.txt, or this will not be generated
+Description: A hot, steamy room full of water boilers for heat radiation throughout the ship.
+#A brief description of the room.
