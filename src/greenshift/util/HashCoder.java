@@ -1,4 +1,4 @@
-package util;
+package greenshift.util;
 
 public class HashCoder {
 	private int result;

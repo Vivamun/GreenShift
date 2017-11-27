@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Random;
 
 import greenshift.Reference;
-import util.SystemGrabber;
+import greenshift.util.SystemGrabber;
 
 public class MapGenerator {
 	private static final String BIOME_FILE = SystemGrabber.getAppdataPath() + File.separator + Reference.TITLE + "Biomes.txt";
