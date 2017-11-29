@@ -13,6 +13,7 @@ public class DataReader {
 	public final static String END_OF_FILE = "E0f";
 	
 	private final BufferedReader reader;
+	private String line;
 	
 	public DataReader(File readFile) {
 		reader = createReader(readFile);
@@ -28,7 +29,7 @@ public class DataReader {
 		return result;
 	}
 	
-	public String readLine() {
+	public DataReader loadNextLine() {
 		String line = "";
 		try {
 			String tempLine = reader.readLine();
@@ -37,49 +38,57 @@ public class DataReader {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return line;
+		this.line = line;
+		return this;
 	}
 	
 	/**
-	 * Gets the data from the next line. Ignores the Title
+	 * Gets the data from the line. Ignores the Title
 	 * @return the comma-separated data following the Title
 	 */
-	public String[] readLineData() {
-		String line = readLine();
-		String[] callSplit = line.split(NAME_SEPARATION);
-		String[] data = callSplit[callSplit.length-1].split(DATA_SEPARATION);
+	public String[] getLineAsData() {
+		String[] lineTitled = getLineAsTitled();
+		String[] data = lineTitled[1].split(DATA_SEPARATION);
 		return data;
 	}
 	
 	/**
-	 * Gets the next line in the file as all associated values. 
-	 * Result[0] is the title, if it exists, the remainder is the data.
+	 * Gets the line as all associated values. 
+	 * Result[0] is the title, if it exists, (null if not) the remainder is the data.
 	 * @return all values from the next readable line.
 	 */
-	public String[] readLineValues() {
+	public String[] getLineAsValues() {
 		String[] result;
-		String line = readLine();
-		String[] callSplit = line.split(NAME_SEPARATION);
-		String[] data = callSplit[callSplit.length-1].split(DATA_SEPARATION);
+		String[] lineTitled = getLineAsTitled();
+		String[] data = getLineAsData();
 		
-		boolean hasTitle = callSplit.length > 1;
-		if(hasTitle) {
-			result = new String[data.length+1];
-			result[0] = callSplit[0];
-			for(int i = 0; i< data.length; i++) {
-				result[i+1] = data[i];
-			}
-		} else {
-			result = data;
+		result = new String[data.length+1];
+		result[0] = lineTitled[0];
+		for(int i = 0; i< data.length; i++) {
+			result[i+1] = data[i];
 		}
+
 		return result;
 	}
 	
 	/**
-	 * Gets the title and remainders of the next line
+	 * Gets the title and remainders of the line
 	 * @return The title in position 0, and the full data in position 1 of an array
 	 */
-	public String[] readLineTitled() {
-		return readLine().split(NAME_SEPARATION);
+	public String[] getLineAsTitled() {
+		String[] titled = line.split(NAME_SEPARATION);
+		if(titled.length == 1) {
+			titled[1] = titled[0];
+			titled[0] = null;
+		}
+		return titled;
+	}
+	
+	/**
+	 * get the line of data in its raw form
+	 * @return the last line loaded
+	 */
+	public String getLine() {
+		return line;
 	}
 }

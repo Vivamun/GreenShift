@@ -55,7 +55,7 @@ public class MapGenerator {
 			biomeGrabber = new Random(getNewSeed());
 
 			dataReader = new DataReader(readFile);
-			depth = dataReader.readLineData().length;
+			depth = dataReader.loadNextLine().getLineAsData().length;
 
 			//Load data into collections
 			for(int i = 0; i<depth; i++) { noiseGenerators.add(new OpenSimplexNoise(getNewSeed())); }
@@ -72,7 +72,7 @@ public class MapGenerator {
 				}
 				addBiome(values,name);
 			
-			data = dataReader.readLineValues();
+			data = dataReader.loadNextLine().getLineAsValues();
 			}
 		}
 
