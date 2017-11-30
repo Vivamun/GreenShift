@@ -33,3 +33,7 @@ Game Design:
 	DMWCincy
 	Geekman9097
 	Rich403
+	
+Open Simplex Noise Courtesy Kurt Spencer
+https://gist.github.com/KdotJPG/b1270127455a94ac5d19
+Used under a public domain license
