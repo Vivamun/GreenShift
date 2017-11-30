@@ -42,23 +42,26 @@ public class MapGenerator {
 		private final DataReader dataReader; //reads the data off the file.
 		private final int depth; //how many bases of generation to use.
 
-		private final List<OpenSimplexNoise> noiseGenerators; //the group of noise planes to draw our data from
+		private final OpenSimplexNoise[] noiseGenerators; //the group of noise planes to draw our data from
 		private final Map<String,List<String>> biomeGroups; //a list of the calls for biomes that can be generated, for some data values
 		private final Random biomeGrabber; //a random generator for selecting which biome from the possible group to use.
 		
 
 		BiomeGenerator(File readFile) {
-			//			biomeFile = readFile;
-
-			noiseGenerators = new ArrayList<>();
+			
+			//set up data storage
 			biomeGroups = new HashMap<>();
+			//initialize the random with a new seed from the map generator
 			biomeGrabber = new Random(getNewSeed());
-
+			//create a data reader
 			dataReader = new DataReader(readFile);
+			
+			//find out how many generators we need to use
 			depth = dataReader.loadNextLine().getLineAsData().length;
 
 			//Load data into collections
-			for(int i = 0; i<depth; i++) { noiseGenerators.add(new OpenSimplexNoise(getNewSeed())); }
+			noiseGenerators = new OpenSimplexNoise[depth];
+			for(int i = 0; i<depth; i++) { noiseGenerators[i] = new OpenSimplexNoise(getNewSeed()); }
 			loadBiomes();
 		}
 
