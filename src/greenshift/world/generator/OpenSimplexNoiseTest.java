@@ -29,6 +29,6 @@ public class OpenSimplexNoiseTest
 				image.setRGB(x, y, rgb);
 			}
 		}
-		ImageIO.write(image, "png", new File("noise.png"));
+		ImageIO.write(image, "png", new File(args[0]  + "noise.png"));
 	}
 }
