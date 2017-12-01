@@ -1,7 +1,0 @@
-The saves folder should contain the saves of all the active games.
-The folder should contain data needed to load and resume each world as it was left.
-The save folder should also remember what mods were active during the game so they can mount the right mods
-	also, so the launcher knows which saves to display (if the game was launched in vanilla, all saves with
-	mods listed are not displayed).
-
-This is a bad place for saves. This will be wrapped inside the Jar when compressed, and as such, will not be accessible. We need to find a way to get a system-independent location for data (either appData/Application support or documents) and use that instead of in-project files.
