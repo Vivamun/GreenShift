@@ -3,11 +3,12 @@ package greenshift.save;
 /**
  * A class to keep track of what must be written to the save file. This includes:
  * <ul>
- * <li>the world seed
+ * <li>the world seed & Biome File used
  * <li>The order in which room were discovered
  * <li>The player's position & inventory
  * <li>Any items moved by the player from their original location
  * <li>Enemies that have been damaged or killed
+ * <li>Mods installed in this save
  * <li>Any other changes made from the pure generated world
  * </ul>
  * 
