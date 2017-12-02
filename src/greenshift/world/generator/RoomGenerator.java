@@ -5,6 +5,6 @@ import java.util.Map;
 import greenshift.world.Room;
 
 public class RoomGenerator {
-	//holds the generateable rooms, keyed by their biome generation name.
+	//holds the generatable rooms, keyed by their biome generation name.
 	private Map<String,Room> rooms;
 }
