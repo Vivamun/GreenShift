@@ -1,10 +1,10 @@
 package greenshift.world.generator;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.util.List;
+
+import org.apache.commons.io.FileUtils;
 
 public class DataReader {
 	private final static String NAME_SEPARATION = ": ";
@@ -12,33 +12,28 @@ public class DataReader {
 	private final static String COMMENT_MARKER = "#";
 	public final static String END_OF_FILE = "E0f";
 	
-	private final BufferedReader reader;
+	private final List<String> lines;
+	int radix = 0;
 	private String line;
 	
 	public DataReader(File readFile) {
-		reader = createReader(readFile);
+		lines = loadLines(readFile);
 	}
 	
-	private BufferedReader createReader(File readFile) {
-		BufferedReader result = null;
+	public List<String> loadLines(File readFile) {
 		try {
-			result = new BufferedReader(new FileReader(readFile));
-		} catch (FileNotFoundException e) {
+			return FileUtils.readLines(readFile, "UTF-8");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return null;
 		}
-		return result;
 	}
 	
 	public DataReader loadNextLine() {
-		String line = "";
-		try {
-			String tempLine = reader.readLine();
-			if (tempLine == null) tempLine = END_OF_FILE;
-			line = tempLine.startsWith(COMMENT_MARKER) ? "" : tempLine;
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		this.line = line;
+		String tempLine = lines.get(radix++);
+		if (tempLine == null) tempLine = END_OF_FILE;
+		line = tempLine.startsWith(COMMENT_MARKER) ? "" : tempLine;
 		return this;
 	}
 	
