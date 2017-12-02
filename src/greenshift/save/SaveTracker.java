@@ -20,10 +20,13 @@ package greenshift.save;
  * <br>be notified whenever there is a change to the world, and update itself as such
  * <br> and/or
  * <br>Check itself against the world state at a determined interval and update to match
+ * <br>the first method is likely more suitable for cases such as room discovery, the latter for item movement and player condition
  * 
+ * <p>
+ * When saving to file, this method can hand off all the data it holds to be written.
  * @author geekman9097
  *
  */
 public class SaveTracker {
-
+	
 }
