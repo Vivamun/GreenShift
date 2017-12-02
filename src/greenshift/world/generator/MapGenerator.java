@@ -23,8 +23,12 @@ public class MapGenerator {
 		seedGenerator = new Random(seed);
 		biomeGenerator = new BiomeGenerator(new File(BIOME_FILE));
 	}
+	
+	public BiomeGenerator getBiomeGen() {
+		return biomeGenerator;
+	}
 
-	public long getNewSeed() {
+	private long getNewSeed() {
 		return seedGenerator.nextLong();
 	}
 
@@ -37,10 +41,10 @@ public class MapGenerator {
 	 * @author geekman9097
 	 *
 	 */
-	private class BiomeGenerator {
-		//		private final File biomeFile; //which file to read to load data
+	public class BiomeGenerator {
 		private final DataReader dataReader; //reads the data off the file.
-		private final int depth; //how many bases of generation to use.
+		private final int complexity; //how many bases of generation to use.
+		private final int[] precision; //the highest value found for generation for each generator 
 
 		private final OpenSimplexNoise[] noiseGenerators; //the group of noise planes to draw our data from
 		private final Map<String,List<String>> biomeGroups; //a list of the calls for biomes that can be generated, for some data values
@@ -57,26 +61,29 @@ public class MapGenerator {
 			dataReader = new DataReader(readFile);
 			
 			//find out how many generators we need to use
-			depth = dataReader.loadNextLine().getLineAsData().length;
+			complexity = dataReader.loadNextLine().getLineAsData().length;
 
 			//Load data into collections
-			noiseGenerators = new OpenSimplexNoise[depth];
-			for(int i = 0; i<depth; i++) { noiseGenerators[i] = new OpenSimplexNoise(getNewSeed()); }
-			loadBiomes();
+			noiseGenerators = new OpenSimplexNoise[complexity];
+			for(int i = 0; i<complexity; i++) { noiseGenerators[i] = new OpenSimplexNoise(getNewSeed()); }
+			precision = loadBiomes();
 		}
 
-		private void loadBiomes() {
+		private int[] loadBiomes() {
+			int[] tempPrecision = new int[complexity];
 			String[] data = {""};
 			while(data[0] != DataReader.END_OF_FILE) {
 				String name = data[0]; 
-				int[] values = new int[depth];
-				for(int i = 0; i < depth; i++) {
+				int[] values = new int[complexity];
+				for(int i = 0; i < complexity; i++) {
 					values[i] = Integer.parseInt(data[i+1]);
+					if(values[i] > tempPrecision[i]) tempPrecision[i] = values[i];
 				}
 				addBiome(values,name);
 			
 			data = dataReader.loadNextLine().getLineAsValues();
 			}
+			return tempPrecision;
 		}
 
 		private void addBiome(int[] values, String biomeName) {
@@ -92,6 +99,32 @@ public class MapGenerator {
 			}
 			return result.toString();
 		}
+		
+		private int[] getValuesAt(int x, int y) {
+			int[] result = new int[complexity];
+			for (int i = 0; i < complexity; i++) {
+				result[i] = noiseToKey(noiseGenerators[i].eval(x, y),i);
+			}
+			return result;
+		}
+
+		/**
+		 * converts a 2D noise value (within <code>{-sqrt(1/2),sqrt(1/2)}</code>)
+		 * to a key value (within <code>{0, precision[generatorNumber]}</code>)
+		 * @param noise
+		 * @param generatorNumber
+		 * @return
+		 */
+		private int noiseToKey(double noise, int generatorNumber) {
+			int maxVal = precision[generatorNumber];
+			//normalize the value from 0 to 1
+			double dataVal = (noise - Math.sqrt(1/2))/(Math.sqrt(2));
+			//convert the data val to a non-rounded key
+			double keyVal = dataVal*maxVal;
+			//round to nearest integer
+			int key = (int)(keyVal + 0.5);
+			return key;
+		}
 
 		private List<String> getBiomeNames(int[] values) {
 			String key = valuesToKey(values);
@@ -101,6 +134,14 @@ public class MapGenerator {
 		private String getRandomBiomeName(List<String> biomes){
 			int index = biomeGrabber.nextInt(biomes.size());
 			return biomes.get(index);
+		}
+		
+		public String getBiomeAt(int x, int y) {
+			return getRandomBiomeName(
+				getBiomeNames(
+					getValuesAt(x,y)
+				)
+			);
 		}
 
 	}
