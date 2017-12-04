@@ -9,6 +9,9 @@ import java.util.Random;
 
 import greenshift.Reference;
 import greenshift.util.SystemGrabber;
+import greenshift.world.Direction;
+import greenshift.world.Doorway;
+import greenshift.world.Pos;
 
 public class MapGenerator {
 	private static final String BIOME_FILE = SystemGrabber.getAppdataPath() + File.separator + Reference.TITLE + "Biomes.txt";
@@ -31,9 +34,32 @@ public class MapGenerator {
 	private long getNewSeed() {
 		return seedGenerator.nextLong();
 	}
-
+	
+	/**
+	 * A path generation class for creating connections between rooms
+	 * When handed a room, and a direction, must be able to create either a doorway between that room and the room in that direction,
+	 * or no door at all, representing a closed wall
+	 * 
+	 * @author DMWCincy
+	 */
 	private class PathGenerator {
-
+		
+		private Direction in;
+		
+		//TODO: Implement Pos class
+		private Doorway getDoor(Pos position, Direction out) {
+			return null;
+		}
+		
+		void testThing() {
+			switch(in) {
+			case FORE:
+				break;
+			case AFT:
+				break;
+			}
+		
+		}
 	}
 
 	/**

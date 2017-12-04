@@ -6,6 +6,11 @@ import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 
+/**
+ * 
+ * JAVADOC EVERYTHING YOU SAID
+ *
+ */
 public class DataReader {
 	private final static String NAME_SEPARATION = ": ";
 	private final static String DATA_SEPARATION = ", ";
