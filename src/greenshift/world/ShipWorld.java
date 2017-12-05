@@ -11,8 +11,8 @@ public class ShipWorld {
 		gen = new MapGenerator(DEFAULT_SEED);
 	}
 
-	public void addRoom(int x, int y) {
-		String biome = gen.getBiomeGen().getBiomeAt(x, y);
+	public void addRoom(int x, int z) {
+		String biome = gen.getBiomeGen().getBiomeAt(x, z);
 	}
 	
 }

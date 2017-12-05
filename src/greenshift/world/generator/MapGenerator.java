@@ -126,10 +126,10 @@ public class MapGenerator {
 			return result.toString();
 		}
 		
-		private int[] getValuesAt(int x, int y) {
+		private int[] getValuesAt(int x, int z) {
 			int[] result = new int[complexity];
 			for (int i = 0; i < complexity; i++) {
-				result[i] = noiseToKey(noiseGenerators[i].eval(x, y),i);
+				result[i] = noiseToKey(noiseGenerators[i].eval(x, z),i);
 			}
 			return result;
 		}
@@ -162,10 +162,10 @@ public class MapGenerator {
 			return biomes.get(index);
 		}
 		
-		public String getBiomeAt(int x, int y) {
+		public String getBiomeAt(int x, int z) {
 			return getRandomBiomeName(
 				getBiomeNames(
-					getValuesAt(x,y)
+					getValuesAt(x,z)
 				)
 			);
 		}
