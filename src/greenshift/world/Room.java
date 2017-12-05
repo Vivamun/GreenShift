@@ -11,7 +11,7 @@ public class Room {
 	public Room(String name, String description) {
 		this.name = name;
 		this.description = description;
-		doors = new EnumMap<Direction,Doorway>(Direction.class);
+		doors = new EnumMap<>(Direction.class);
 	}
 	
 	public void addDoorway(Doorway door) {
