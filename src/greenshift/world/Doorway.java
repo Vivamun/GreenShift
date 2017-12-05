@@ -10,5 +10,22 @@ public class Doorway {
 	 * Instead, Query the Doorway.
 	 */
 	private Direction dir;
+	
+	public Room getRoomA() {
+		return a;
+	}
+	
+	public Room getRoomB() {
+		return b;
+	}
+	
+	public Direction getDirection() {
+		return dir;
+	}
+	
+	public Room use(/*TODO: args*/) {
+		//TODO: Return the room the user is NOT in, or Block them.
+		return null;
+	}
 
 }
