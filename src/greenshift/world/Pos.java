@@ -1,4 +1,7 @@
 package greenshift.world;
+
+import greenshift.util.HashCoder;
+
 //TODO: Implement Pos class
 public class Pos {
 
@@ -20,6 +23,13 @@ public class Pos {
 	
 	public Pos move(Direction dir) {
 		return new Pos(xPos + dir.getDelX(), zPos + dir.getDelZ());
+	}
+	
+	public int hashCode() {
+		HashCoder result = new HashCoder(17,23);
+		result.append(xPos);
+		result.append(zPos);
+		return result.getHash();
 	}
 	
 }
