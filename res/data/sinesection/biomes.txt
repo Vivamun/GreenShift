@@ -2,7 +2,14 @@ HEAT, NOISE, DANGER
 #Three values for generation. Must be the first line.
 #Generation values follow, along with biome call strings. Each has generation values.
 #A piece of data must have a data values for each generation criterion. Values can range from 0 to 4
-Boiler: 4, 4, 3
+Boiler: 1, 1, 1
 #The Boiler. A hot, Noisy, dangerous area.
-Lounge: 2, 0, 0
+Lounge: 0, 0, 0
 #The passenger lounge. A Calm, moderate place to relax.
+Sauna: 1, 0, 0
+Fridge: 0, 1, 0
+Airlock: 0, 0, 1
+Pool: 1, 1, 0
+Bar: 1, 1, 0
+Freezer: 0, 1, 1
+Reactor: 1, 0, 1
