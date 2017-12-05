@@ -1,6 +1,6 @@
 package greenshift.world;
 
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.Map;
 
 public class Room {
@@ -11,7 +11,7 @@ public class Room {
 	public Room(String name, String description) {
 		this.name = name;
 		this.description = description;
-		doors = new HashMap<>();
+		doors = new EnumMap<Direction,Doorway>(Direction.class);
 	}
 	
 	public void addDoorway(Doorway door) {
