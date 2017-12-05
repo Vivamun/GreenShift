@@ -6,12 +6,19 @@ public enum Direction {
 	PORT(-1,0),
 	STARBOARD(1,0);
 	
-
-	final int delX;
-	final int delZ;
+	final private int delX;
+	final private int delZ;
 	
 	Direction(int delX, int delZ) {
 		this.delX = delX;
 		this.delZ = delZ;
+	}
+	
+	public int getDelX() {
+		return delX;
+	}
+	
+	public int getDelZ() {
+		return delZ;
 	}
 }
