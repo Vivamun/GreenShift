@@ -14,11 +14,11 @@ public class Reference {
 	 * I.E, where the default files are, and hence, where to download them from.
 	 */
 	public static final URL DATA_URL = dataUrl();
-	private static final String DATA_STRING = "";
+	private static final String DATA_STRING = "https://pastebin.com/raw/EtdAWAwD";
 	/**
 	 * Where the game is installed, and all files should be located
 	 */
-	public static final File INSTALL_LOCATION = new File(System.getProperty("user.dir"));
+	public static final File INSTALL_LOCATION = new File(System.getProperty("user.dir") + File.separator + "InstallTest.txt");
 
 	/**
 	 * generate the Data Url Field with try catch blocks
