@@ -21,4 +21,23 @@ public enum Direction {
 	public int getDelZ() {
 		return delZ;
 	}
+	
+	public Direction getOpposite() {
+		Direction opposite = null;
+		switch(this) {
+		case FORE:
+			opposite = AFT;
+			break;
+		case AFT:
+			opposite = FORE;
+			break;
+		case PORT:
+			opposite = STARBOARD;
+			break;
+		case STARBOARD:
+			opposite = PORT;
+			break;
+		}
+		return opposite;
+	}
 }
