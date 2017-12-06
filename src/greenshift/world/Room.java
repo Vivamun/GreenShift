@@ -18,7 +18,16 @@ public class Room {
 		if(door.getRoomA().equals(this)) {
 			doors.put(door.getDirection(),door);
 		} else {
-//			TODO: implement
+			doors.put(door.getDirection().getOpposite(),door);
 		}
+	}
+	
+	/**
+	 * create a copy of this room's spec, for use in generation.
+	 * mutable fields are not changed in the copy.
+	 * @return A Room with the same not-mutable fields as this.
+	 */
+	public Room copy() {
+		return new Room(name,description);
 	}
 }
