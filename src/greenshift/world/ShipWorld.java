@@ -4,11 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import greenshift.world.generator.MapGenerator;
+import greenshift.world.generator.RoomGenerator;
 
 public class ShipWorld {
 	private static final int DEFAULT_SEED = -1;
 	
 	private final MapGenerator gen;
+	private final RoomGenerator roomGen;
 	private final Map<Pos,Room> rooms;
 	
 	public ShipWorld() {
