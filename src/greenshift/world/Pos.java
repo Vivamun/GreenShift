@@ -4,8 +4,8 @@ import greenshift.util.HashCoder;
 
 public class Pos {
 
-	final int xPos;
-	final int zPos;
+	private final int xPos;
+	private final int zPos;
 	
 	public Pos(int x, int z) {
 		this.xPos = x;
