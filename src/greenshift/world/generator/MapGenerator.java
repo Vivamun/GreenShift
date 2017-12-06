@@ -46,7 +46,6 @@ public class MapGenerator {
 		
 		private Direction in;
 		
-		//TODO: Implement Pos class
 		private Doorway getDoor(Pos position, Direction out) {
 			return null;
 		}

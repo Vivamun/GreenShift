@@ -2,7 +2,6 @@ package greenshift.world;
 
 import greenshift.util.HashCoder;
 
-//TODO: Implement Pos class
 public class Pos {
 
 	final int xPos;
