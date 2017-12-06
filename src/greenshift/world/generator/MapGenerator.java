@@ -51,8 +51,15 @@ public class MapGenerator {
 			return null;
 		}
 		
+		void testThing() {
+			switch(in) {
+			case FORE:
+				break;
+			case AFT:
+				break;
+			}
 		
-		
+		}
 	}
 
 	/**
@@ -165,4 +172,3 @@ public class MapGenerator {
 
 	}
 }
-	

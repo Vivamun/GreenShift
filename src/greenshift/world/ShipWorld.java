@@ -16,32 +16,6 @@ public class ShipWorld {
 		rooms = new HashMap<>();
 	}
 
-	public Room getRoom(int x, int z) {
-		//TODO: implement get room
-		/*
-		 * If the room exists, return it.
-		 * If not, then generate it and return it
-		 */
-		
-		/**
-		 * The position of the room that's being queried
-		 */
-		
-		Pos queryPos = new Pos(x,z);
-		if (rooms.get(queryPos) == null){
-			//Room needs to be generated
-			rooms.put(queryPos, generateRoom(queryPos));
-		}
-		return rooms.get(queryPos);
-	}
-	
-	private Room generateRoom(Pos pos) {
-		int xPos = pos.xPos;
-		int zPos = pos.zPos;
-		
-		return null;
-	}
-	//Method above may render this one obsolete, keeping it here in case it has a use somewhere I don't see
 	public void addRoom(int x, int z) {
 		String biome = gen.getBiomeGen().getBiomeAt(x, z);
 		Pos pos = new Pos(x,z);
