@@ -22,6 +22,10 @@ public class Room {
 		}
 	}
 	
+	public String getName() {
+		return name;
+	}
+	
 	/**
 	 * create a copy of this room's spec, for use in generation.
 	 * mutable fields are not changed in the copy.

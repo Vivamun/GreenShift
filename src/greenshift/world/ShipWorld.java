@@ -15,12 +15,13 @@ public class ShipWorld {
 	
 	public ShipWorld() {
 		gen = new MapGenerator(DEFAULT_SEED);
+		roomGen = new RoomGenerator();
 		rooms = new HashMap<>();
 	}
 
 	public void addRoom(int x, int z) {
 		String biome = gen.getBiomeGen().getBiomeAt(x, z);
-		Pos pos = new Pos(x,z);
+		rooms.put(new Pos(x,z), roomGen.getNewRoom(biome));
 	}
 	
 	/**
