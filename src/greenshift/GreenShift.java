@@ -2,7 +2,6 @@ package greenshift;
 
 import java.util.Random;
 
-import net.keabotstudios.superserial.BinaryWriter;
 import net.keabotstudios.superserial.containers.SSArray;
 import net.keabotstudios.superserial.containers.SSDatabase;
 import net.keabotstudios.superserial.containers.SSField;

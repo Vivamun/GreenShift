@@ -1,5 +1,10 @@
 package greenshift.util;
 
+/**
+ * a Util class to help in creation of hashCades for objects, especially those used in hashMaps as keys
+ * @author geekman9097
+ *
+ */
 public class HashCoder {
 	private int result;
 	final private int increment;
@@ -16,7 +21,7 @@ public class HashCoder {
 	}
 
 	public HashCoder append(double element) {
-		result *= increment;
+		multiply();
 		add((int) (element + 0.5));
 		return this;
 	}
