@@ -1,4 +1,4 @@
-package greenshift.world;
+package sineSection.greenshift.world;
 
 import java.util.EnumMap;
 import java.util.Map;

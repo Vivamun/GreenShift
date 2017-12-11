@@ -1,4 +1,4 @@
-package greenshift.world;
+package sineSection.greenshift.world;
 
 public class Doorway {
 	private Room a;

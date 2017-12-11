@@ -1,4 +1,4 @@
-package greenshift.world.generator;
+package sineSection.greenshift.world.generator;
 
 import java.io.File;
 import java.io.IOException;

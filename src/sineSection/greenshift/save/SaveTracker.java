@@ -1,4 +1,4 @@
-package greenshift.save;
+package sineSection.greenshift.save;
 
 /**
  * A class to keep track of what must be written to the save file. This includes:

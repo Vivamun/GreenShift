@@ -1,9 +1,9 @@
-package greenshift.world.generator;
+package sineSection.greenshift.world.generator;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import greenshift.world.Room;
+import sineSection.greenshift.world.Room;
 
 public class RoomGenerator {
 	//holds the generatable rooms, keyed by their biome generation name.

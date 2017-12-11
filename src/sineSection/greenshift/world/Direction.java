@@ -1,4 +1,4 @@
-package greenshift.world;
+package sineSection.greenshift.world;
 
 public enum Direction {
 	FORE(0,-1),

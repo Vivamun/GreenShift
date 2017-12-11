@@ -1,4 +1,4 @@
-package greenshift.launcher;
+package sineSection.greenshift.launcher;
 
 //TODO: Add 2+ launcher options (Vanilla, Modded, Modded with only certain mods enabled)
 /**

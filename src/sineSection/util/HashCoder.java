@@ -1,4 +1,4 @@
-package greenshift.util;
+package sineSection.util;
 
 /**
  * a Util class to help in creation of hashCades for objects, especially those used in hashMaps as keys

@@ -1,4 +1,4 @@
-package greenshift.world.generator;
+package sineSection.greenshift.world.generator;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import greenshift.Reference;
-import greenshift.util.SystemGrabber;
-import greenshift.world.Direction;
-import greenshift.world.Doorway;
-import greenshift.world.Pos;
+import sineSection.greenshift.Reference;
+import sineSection.greenshift.world.Direction;
+import sineSection.greenshift.world.Doorway;
+import sineSection.greenshift.world.Pos;
+import sineSection.util.SystemGrabber;
 
 public class MapGenerator {
 	private static final String BIOME_FILE = SystemGrabber.getAppdataPath() + File.separator + Reference.TITLE + "Biomes.txt";

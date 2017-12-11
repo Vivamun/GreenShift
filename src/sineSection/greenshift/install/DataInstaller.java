@@ -1,10 +1,10 @@
-package greenshift.install;
+package sineSection.greenshift.install;
 
 import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
 
-import greenshift.Reference;
+import sineSection.greenshift.Reference;
 
 public class DataInstaller {
 	

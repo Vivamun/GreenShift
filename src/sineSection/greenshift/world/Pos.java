@@ -1,6 +1,6 @@
-package greenshift.world;
+package sineSection.greenshift.world;
 
-import greenshift.util.HashCoder;
+import sineSection.util.HashCoder;
 
 public class Pos {
 

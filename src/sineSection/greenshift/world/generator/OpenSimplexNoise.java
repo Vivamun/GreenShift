@@ -1,4 +1,4 @@
-package greenshift.world.generator;
+package sineSection.greenshift.world.generator;
 /*
  * OpenSimplex Noise in Java.
  * by Kurt Spencer

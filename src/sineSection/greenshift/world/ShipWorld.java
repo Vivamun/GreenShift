@@ -1,10 +1,10 @@
-package greenshift.world;
+package sineSection.greenshift.world;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import greenshift.world.generator.MapGenerator;
-import greenshift.world.generator.RoomGenerator;
+import sineSection.greenshift.world.generator.MapGenerator;
+import sineSection.greenshift.world.generator.RoomGenerator;
 
 public class ShipWorld {
 	private static final int DEFAULT_SEED = -1;

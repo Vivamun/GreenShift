@@ -1,4 +1,4 @@
-package greenshift;
+package sineSection.greenshift;
 
 import java.util.Random;
 
