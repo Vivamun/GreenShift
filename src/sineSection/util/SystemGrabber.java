@@ -4,7 +4,6 @@ import java.io.File;
 
 public class SystemGrabber {
 	
-	
 	public static String getAppdataPath() {
 		String OS = (System.getProperty("os.name")).toUpperCase();
 		if (OS.contains("WIN")) {
