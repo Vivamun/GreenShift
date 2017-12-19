@@ -3,6 +3,11 @@ package sineSection.greenshift.world;
 import java.util.EnumMap;
 import java.util.Map;
 
+/**
+ * 
+ * @author geekman9097
+ *
+ */
 public class Room {
 	private final String name;
 	private final String description;
@@ -33,5 +38,13 @@ public class Room {
 	 */
 	public Room copy() {
 		return new Room(name,description);
+	}
+	
+	public String toString() {
+		StringBuilder result = new StringBuilder("A room ");
+		result.append("of type ").append(name);
+		result.append("with the following doors: ");
+		doors.keySet().forEach((key) -> result.append(key.toString()));
+		return result.toString();
 	}
 }
