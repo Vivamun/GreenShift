@@ -40,3 +40,5 @@ Used under a public domain license
 
 Apache Commons (c) the Apache Source Foundation
 Used under the Apache 2.0 License
+
+Queen Of The Night
