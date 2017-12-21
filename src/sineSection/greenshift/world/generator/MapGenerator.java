@@ -7,7 +7,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import sineSection.greenshift.GreenShift;
 import sineSection.greenshift.Reference;
+import sineSection.greenshift.launcher.DataReader;
 import sineSection.greenshift.world.Direction;
 import sineSection.greenshift.world.Doorway;
 import sineSection.greenshift.world.Pos;
@@ -20,15 +22,21 @@ public class MapGenerator {
 	private final long seed;
 	private Random seedGenerator;
 	private final BiomeGenerator biomeGenerator;
+	private final PathGenerator pathGenerator;
 
 	public MapGenerator(long seed) {
 		this.seed = seed;
 		seedGenerator = new Random(seed);
 		biomeGenerator = new BiomeGenerator(new File(BIOME_FILE));
+		pathGenerator = new PathGenerator();
 	}
 	
 	public BiomeGenerator getBiomeGen() {
 		return biomeGenerator;
+	}
+	
+	public PathGenerator getPathGen() {
+		return pathGenerator;
 	}
 
 	private long getNewSeed() {
@@ -40,25 +48,18 @@ public class MapGenerator {
 	 * When handed a room, and a direction, must be able to create either a doorway between that room and the room in that direction,
 	 * or no door at all, representing a closed wall
 	 * 
-	 * @author DMWCincy
+	 * @author DMWCincy, geekman9097
 	 */
-	private class PathGenerator {
+	public class PathGenerator {
 		
-		private Direction in;
-		
-		private Doorway getDoor(Pos position, Direction out) {
-			return null;
+		public Doorway generateDoor(Pos position, Direction out) {
+			//Intermediary method. When asking if a door should be made, always says yes, and give a new door.
+			//TODO: Implement properly to guarantee an interesting, but wholly connected, map.
+			//TODO: If a door already exists between the two rooms, return that one, rather than giving a new doorway
+			return new Doorway(GreenShift.gameInstance.getGameWorld().getRoom(position), GreenShift.gameInstance.getGameWorld().getRoom(position.move(out)), out);
 		}
 		
-		void testThing() {
-			switch(in) {
-			case FORE:
-				break;
-			case AFT:
-				break;
-			}
 		
-		}
 	}
 
 	/**

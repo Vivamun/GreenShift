@@ -1,5 +1,7 @@
 package sineSection.greenshift.world;
 
+import sineSection.greenshift.GreenShift;
+
 public class Doorway {
 	private Room a;
 	private Room b;
@@ -10,6 +12,12 @@ public class Doorway {
 	 * Instead, Query the Doorway.
 	 */
 	private Direction dir;
+	
+	public Doorway(Room a, Room b, Direction dir) {
+		this.a = a;
+		this.b = b;
+		this.dir = dir;
+	}
 	
 	public Room getRoomA() {
 		return a;
