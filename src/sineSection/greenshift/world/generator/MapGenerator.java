@@ -9,7 +9,7 @@ import java.util.Random;
 
 import sineSection.greenshift.ApplicationData;
 import sineSection.greenshift.GreenShift;
-import sineSection.greenshift.launcher.DataReader;
+import sineSection.greenshift.launcher.FileReader;
 import sineSection.greenshift.world.Direction;
 import sineSection.greenshift.world.Doorway;
 import sineSection.greenshift.world.Pos;
@@ -69,7 +69,7 @@ public class MapGenerator {
 	 *
 	 */
 	public class BiomeGenerator {
-		private final DataReader dataReader; // reads the data off the file.
+		private final FileReader dataReader; // reads the data off the file.
 		private final int complexity; // how many bases of generation to use.
 		private final int[] precision; // the highest value found for generation
 										// for each generator
@@ -96,7 +96,7 @@ public class MapGenerator {
 			biomeGrabber = new Random(getNewSeed());
 
 			// create a data reader
-			dataReader = new DataReader(readFile);
+			dataReader = new FileReader(readFile);
 
 			System.out.println(dataReader.getLines().toString());
 
@@ -116,7 +116,7 @@ public class MapGenerator {
 			String[] data = {
 					""
 			};
-			while (data[0] != DataReader.END_OF_FILE) {
+			while (data[0] != FileReader.END_OF_FILE) {
 				String name = data[0];
 				int[] values = new int[complexity];
 				for (int i = 0; i < complexity; i++) {

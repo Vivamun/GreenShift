@@ -10,20 +10,22 @@ import org.apache.commons.io.FileUtils;
 
 /**
  * 
- * JAVADOC EVERYTHING YOU SAID
+ * A file reader class to read a single file and make it accessible to parsers.
+ * Holds the separation types, and comment markers, as well as the end of file marker.
  *
+ * @author geekman9097, Richie_theRich
  */
-public class DataReader {
+public class FileReader {
 	private final static String NAME_SEPARATION = ": ";
 	private final static String DATA_SEPARATION = ", ";
 	private final static String COMMENT_MARKER = "#";
 	public final static String END_OF_FILE = "E0f";
 
 	private final List<String> lines;
-	int radix = 0;
+	private int radix = 0;
 	private String line;
 
-	public DataReader(File readFile) {
+	public FileReader(File readFile) {
 		lines = loadLines(readFile);
 	}
 
@@ -44,7 +46,11 @@ public class DataReader {
 		}
 	}
 
-	public DataReader loadNextLine() {
+	/**
+	 * load the next line in the file into storage
+	 * @return this file reader for ease of accessibility
+	 */
+	public FileReader loadNextLine() {
 		String tempLine = lines.get(radix++);
 		if (tempLine == null)
 			tempLine = END_OF_FILE;
@@ -58,7 +64,8 @@ public class DataReader {
 	 * @return the comma-separated data
 	 */
 	public String[] getLineAsData() {
-		String[] data = line.split(DATA_SEPARATION);
+		String[] lineTitled = getLineAsTitled();
+		String[] data = lineTitled[1].split(DATA_SEPARATION);
 		return data;
 	}
 
@@ -66,6 +73,7 @@ public class DataReader {
 	 * Gets the data from the line. Gets the Title
 	 * 
 	 * @return the comma-separated data following the Title
+	 * @deprecated use getLineAsValues() for intended result, use getLineAsData for actual.
 	 */
 	public String[] getLineAsTitledData() {
 		String[] lineTitled = getLineAsTitled();
@@ -102,9 +110,11 @@ public class DataReader {
 	public String[] getLineAsTitled() {
 		String[] titled = line.split(NAME_SEPARATION);
 		System.out.println(Arrays.toString(titled));
-		if (titled.length > 1) {
-			titled[1] = titled[0];
-			titled[0] = null;
+		if (titled.length == 1) { //If There was no title, only data
+			String[] temp = new String[2];
+			temp[1] = titled[0];
+			temp[0] = null;
+			titled = temp;
 		}
 		return titled;
 	}
@@ -118,6 +128,10 @@ public class DataReader {
 		return line;
 	}
 
+	/**
+	 * get all lines in this file
+	 * @return
+	 */
 	public List<String> getLines() {
 		return lines;
 	}
