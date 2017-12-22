@@ -112,6 +112,7 @@ public class MapGenerator {
 		}
 
 		private int[] loadBiomes() {
+			//TODO: use Biome Parser instead of handling locally.
 			int[] tempPrecision = new int[complexity];
 			String[] data = {
 					""
