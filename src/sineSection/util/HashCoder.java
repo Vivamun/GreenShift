@@ -1,7 +1,9 @@
 package sineSection.util;
 
 /**
- * a Util class to help in creation of hashCades for objects, especially those used in hashMaps as keys
+ * a Util class to help in creation of hashCades for objects, especially those
+ * used in hashMaps as keys
+ * 
  * @author geekman9097
  *
  */

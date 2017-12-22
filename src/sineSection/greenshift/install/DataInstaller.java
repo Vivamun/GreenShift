@@ -7,7 +7,7 @@ import org.apache.commons.io.FileUtils;
 import sineSection.greenshift.Reference;
 
 public class DataInstaller {
-	
+
 	public static void main(String[] args) {
 		try {
 			FileUtils.copyURLToFile(Reference.DATA_URL, Reference.INSTALL_LOCATION);

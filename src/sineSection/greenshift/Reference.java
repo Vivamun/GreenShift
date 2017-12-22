@@ -10,8 +10,8 @@ public class Reference {
 	 */
 	public static final String TITLE = "greenshift";
 	/**
-	 * Where to install all files from.
-	 * I.E, where the default files are, and hence, where to download them from.
+	 * Where to install all files from. I.E, where the default files are, and
+	 * hence, where to download them from.
 	 */
 	public static final URL DATA_URL = dataUrl();
 	private static final String DATA_STRING = "https://pastebin.com/raw/EtdAWAwD";
@@ -22,11 +22,12 @@ public class Reference {
 
 	/**
 	 * generate the Data Url Field with try catch blocks
+	 * 
 	 * @return
 	 */
 	private static URL dataUrl() {
 		URL result = null;
-		
+
 		try {
 			result = new URL(DATA_STRING);
 		} catch (MalformedURLException e) {
@@ -34,5 +35,5 @@ public class Reference {
 			System.exit(-1);
 		}
 		return result;
-	} 
+	}
 }

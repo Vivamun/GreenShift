@@ -26,7 +26,8 @@ public class SoundPlayer {
 	}
 
 	public static void load(String path, String name) {
-		if (clips.get(name) != null) return;
+		if (clips.get(name) != null)
+			return;
 		Clip clip;
 		try {
 			AudioInputStream ais = AudioSystem.getAudioInputStream(SoundPlayer.class.getResourceAsStream(path));
@@ -142,9 +143,10 @@ public class SoundPlayer {
 			InputStream in = SoundPlayer.class.getResourceAsStream(soundLoaderFile);
 			BufferedReader bfr = new BufferedReader(new InputStreamReader(in));
 			String line = "";
-			while((line = bfr.readLine()) != null) {
+			while ((line = bfr.readLine()) != null) {
 				String[] parts = line.split(":");
-				if(parts.length != 2) continue;
+				if (parts.length != 2)
+					continue;
 				String file = parts[0];
 				String name = parts[1];
 				load(file, name);

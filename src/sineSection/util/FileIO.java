@@ -7,7 +7,7 @@ import java.io.IOException;
 import org.apache.commons.io.IOUtils;
 
 public class FileIO {
-	
+
 	public static boolean writeBytesToFile(byte[] data, String path) {
 		try (FileOutputStream fos = new FileOutputStream(path)) {
 			fos.write(data);
@@ -18,7 +18,7 @@ public class FileIO {
 			return false;
 		}
 	}
-	
+
 	public static byte[] readBytesFromFile(String path) {
 		byte[] out;
 		try (FileInputStream fis = new FileInputStream(path)) {

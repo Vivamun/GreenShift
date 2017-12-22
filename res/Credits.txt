@@ -1,45 +1,50 @@
-SineSection Software
-(c) 2017
+GREENSHIFT MK II
 
-All code and files contained within this project, unless otherwise noted, is the sole property of the members 
-of SineSection Software.
+	Co-Founders:
+		DMWCincy
+		Geekman9097
 
-All rights reserved.
+	Chief Executive Officer:
+		DMWCincy
 
-Co-Founders:
-	DMWCincy
-	Geekman9097
+	Chief Operations Officer:
+		Geekman9097
 
-Chief Executive Officer:
-	DMWCincy
-
-Chief Operations Officer:
-	Geekman9097
-
-Chief Financial Officer:
-	lol, we broke
-
-Moral Support:
-	HAH! we have no self worth.
-
-Something Really Important that I don't have a title for:
-	Rich403
-
-Interface Design:
-	Rich403
-	Geekman9097
-
-Game Design:
-	DMWCincy
-	Geekman9097
-	Rich403
+	Chief Financial Officer:
+		lol, we broke boi
 	
-Open Simplex Noise Courtesy Kurt Spencer
-https://gist.github.com/KdotJPG/b1270127455a94ac5d19
-Used under a public domain license
+	Moral Support:
+		HAH! we have no self worth.
+	
+	Something Really Important that I don't have a title for:
+		Richie_TheRich
+	
+	Interface Design:
+		Richie_TheRich
+		Geekman9097
+	
+	Game Design:
+		DMWCincy
+		Geekman9097
+		Richie_TheRich
+		
+	Programming:
+		DMWCincy
+		Geekman9097
+		Richie_TheRich
+	
+	Open Simplex Noise Courtesy Kurt Spencer
+		https://gist.github.com/KdotJPG/b1270127455a94ac5d19
+		Used under a public domain license
 
-Apache Commons (c) the Apache Source Foundation
-Used under the Apache 2.0 License
+	Apache Commons (c) the Apache Source Foundation
+		Used under the Apache 2.0 License
 
-Queen Of The Night (c) MachinimaSound.com
-Used Under Creative Commons Attribution Int'l 4.0
+	Queen Of The Night (c) MachinimaSound.com
+		Used Under Creative Commons Attribution Int'l 4.0
+		
+SineSection Software
+(c) 2017 All rights reserved.
+
+All code and files contained within this project, unless otherwise noted,
+is the sole intellectual property of the members of SineSection Software.

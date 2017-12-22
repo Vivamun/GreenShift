@@ -12,34 +12,35 @@ public class Room {
 	private final String name;
 	private final String description;
 	private final Map<Direction, Doorway> doors;
-	
+
 	public Room(String name, String description) {
 		this.name = name;
 		this.description = description;
 		doors = new EnumMap<>(Direction.class);
 	}
-	
+
 	public void addDoorway(Doorway door) {
-		if(door.getRoomA().equals(this)) {
-			doors.put(door.getDirection(),door);
+		if (door.getRoomA().equals(this)) {
+			doors.put(door.getDirection(), door);
 		} else {
-			doors.put(door.getDirection().getOpposite(),door);
+			doors.put(door.getDirection().getOpposite(), door);
 		}
 	}
-	
+
 	public String getName() {
 		return name;
 	}
-	
+
 	/**
-	 * create a copy of this room's spec, for use in generation.
-	 * mutable fields are not changed in the copy.
+	 * create a copy of this room's spec, for use in generation. mutable fields
+	 * are not changed in the copy.
+	 * 
 	 * @return A Room with the same not-mutable fields as this.
 	 */
 	public Room copy() {
-		return new Room(name,description);
+		return new Room(name, description);
 	}
-	
+
 	public String toString() {
 		StringBuilder result = new StringBuilder("A room ");
 		result.append("of type ").append(name);
