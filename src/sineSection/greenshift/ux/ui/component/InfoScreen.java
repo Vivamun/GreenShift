@@ -5,6 +5,6 @@ import javax.swing.JTextArea;
 public class InfoScreen extends JTextArea{
 
 	private static final String HEALTH_TEXT = "Health: ";
-	private static final String 
+	private static final String ROOM_NAME_TEXT = "Current Room: ";
 	
 }
