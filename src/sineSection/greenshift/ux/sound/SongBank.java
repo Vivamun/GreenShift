@@ -1,9 +1,9 @@
-package sineSection.greenshift.ux;
+package sineSection.greenshift.ux.sound;
 
 import java.util.List;
 import java.util.Map;
 
-public class SoundBank {
+public class SongBank {
 	/**
 	 * The list of music tracks, sorted by mood.
 	 */
