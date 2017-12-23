@@ -13,4 +13,8 @@ package sineSection.greenshift.launcher;
  */
 public class Launcher {
 
+	
+	public void launch() {
+		//TODO: iterate through all data folders, then put the data into the appropriate class through the necessary parser.
+	}
 }
