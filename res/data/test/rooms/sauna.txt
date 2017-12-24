@@ -1,0 +1,2 @@
+Name: Sauna
+Description: A good place to sweat out some stress. 

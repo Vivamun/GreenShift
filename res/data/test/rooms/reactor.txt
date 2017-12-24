@@ -1,0 +1,2 @@
+Name: Reactor
+Description: A reactor to power at least a section of the ship. Careful around it - might be leaking.

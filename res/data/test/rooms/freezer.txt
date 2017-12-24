@@ -1,0 +1,2 @@
+Name: Freezer
+Description: An icy cold place for storing perishables. Stay Warm!

@@ -1,0 +1,2 @@
+Name: Pool
+Description: A nice place to swim.

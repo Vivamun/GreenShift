@@ -1,0 +1,2 @@
+Name: Boiler
+Description: A Hot Boiler Room, piping water for heating across the ship.

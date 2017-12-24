@@ -1,0 +1,2 @@
+Name: Fridge
+Description: Keeps perishable edibles non-icy. 

@@ -1,0 +1,2 @@
+Name: Airlock
+Description: Opens to Space. Don't go outside without proper gear!

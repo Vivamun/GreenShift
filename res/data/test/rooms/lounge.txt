@@ -1,0 +1,2 @@
+Name: Lounge
+Description: A good place for passengers to relax
