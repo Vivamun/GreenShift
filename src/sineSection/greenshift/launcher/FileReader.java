@@ -101,7 +101,7 @@ public class FileReader {
 		for (int i = 0; i < data.length; i++) {
 			result[i + 1] = data[i];
 		}
-		LogWriter.print(Arrays.toString(result));
+		
 		return result;
 	}
 
@@ -113,13 +113,14 @@ public class FileReader {
 	 */
 	public String[] getLineAsTitled() {
 		String[] titled = line.split(NAME_SEPARATION);
-		LogWriter.print(Arrays.toString(titled));
+		
 		if (titled.length == 1) { //If There was no title, only data
 			String[] temp = new String[2];
 			temp[1] = titled[0];
 			temp[0] = null;
 			titled = temp;
 		}
+		
 		return titled;
 	}
 
