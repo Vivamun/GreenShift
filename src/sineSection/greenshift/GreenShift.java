@@ -1,6 +1,7 @@
 package sineSection.greenshift;
 
 import sineSection.greenshift.world.ShipWorld;
+import sineSection.util.LogWriter;
 
 /**
  * GREENSHIFT MK2
@@ -21,6 +22,8 @@ public class GreenShift {
 	private final ShipWorld world;
 
 	public static void main(String[] args) {
+		LogWriter.createLogger(Reference.TITLE);
+		
 		TESTING = true;
 		for (String arg : args) {
 			switch(arg) {
