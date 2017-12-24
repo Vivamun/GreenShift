@@ -60,7 +60,7 @@ public class MapGenerator {
 			// connected, map.
 			// TODO: If a door already exists between the two rooms, return that
 			// one, rather than giving a new doorway
-			return new Doorway(GreenShift.gameInstance.getGameWorld().getRoom(position), GreenShift.gameInstance.getGameWorld().getRoom(position.move(out)), out);
+			return new Doorway(position, position.move(out), out);
 		}
 
 	}

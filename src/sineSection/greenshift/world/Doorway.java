@@ -1,8 +1,8 @@
 package sineSection.greenshift.world;
 
 public class Doorway {
-	private Room a;
-	private Room b;
+	private Pos a;
+	private Pos b;
 	/**
 	 * The direction to go from room a to room b. Used later to allow the Room
 	 * to simply reference when applying this door, So as to prevent the room
@@ -11,17 +11,17 @@ public class Doorway {
 	 */
 	private Direction dir;
 
-	public Doorway(Room a, Room b, Direction dir) {
+	public Doorway(Pos a, Pos b, Direction dir) {
 		this.a = a;
 		this.b = b;
 		this.dir = dir;
 	}
 
-	public Room getRoomA() {
+	public Pos getRoomA() {
 		return a;
 	}
 
-	public Room getRoomB() {
+	public Pos getRoomB() {
 		return b;
 	}
 
