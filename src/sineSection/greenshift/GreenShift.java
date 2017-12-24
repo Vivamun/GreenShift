@@ -15,11 +15,20 @@ import sineSection.greenshift.world.ShipWorld;
 public class GreenShift {
 
 	public static final boolean LAUNCHABLE = false;
+	public static boolean TESTING;
 
 	public static GreenShift gameInstance;
 	private final ShipWorld world;
 
 	public static void main(String[] args) {
+		TESTING = true;
+		for (String arg : args) {
+			switch(arg) {
+			case "gameEnv":
+				TESTING = false;
+				break;
+			}
+		}
 		// try {
 		// System.out.print("INITATING LAUNCH SEQUENCE");
 		// Thread.sleep(1000);

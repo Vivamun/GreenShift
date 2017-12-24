@@ -86,6 +86,9 @@ public class ApplicationData {
 	 * @return a path to the application folder
 	 */
 	public static String getAppFolderPath() {
+		if(GreenShift.TESTING) {
+			return System.getProperty("user.dir") + File.separator + "res" + File.separator + "data" + File.separator + "test";
+		} else {
 		String OS = (System.getProperty("os.name")).toUpperCase();
 		if (OS.contains("WIN")) {
 			// Windahs
@@ -93,6 +96,7 @@ public class ApplicationData {
 		} else {
 			// Mac-and-cheese and also lin-hicks
 			return System.getProperty("user.home") + File.separator + "Library" + File.separator + "Application Support" + File.separator + Reference.TITLE;
+		}
 		}
 	}
 
