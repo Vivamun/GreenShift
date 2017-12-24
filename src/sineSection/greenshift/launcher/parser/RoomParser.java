@@ -12,11 +12,7 @@ public class RoomParser extends Parser {
 	
 	private File readFile;
 	
-	public RoomParser(File readFile) {
-		this.readFile = readFile;
-	}
-	
-	public Room parse() {
+	public Room parse(File readFile) {
 		String name = "";
 		String description = "";
 		
