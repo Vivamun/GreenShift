@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="lib" path="lib/SuperSerial.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="lib/commons-io-2.6/commons-io-2.6.jar" sourcepath="lib/commons-io-2.6/commons-io-2.6-sources.jar">
@@ -8,5 +9,6 @@
 			<attribute name="javadoc_location" value="jar:platform:/resource/GreenShiftMk.2/lib/commons-io-2.6/commons-io-2.6-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
