@@ -30,6 +30,10 @@ public class Room {
 	public String getName() {
 		return name;
 	}
+	
+	public String getDescription() {
+		return description;
+	}
 
 	/**
 	 * create a copy of this room's spec, for use in generation. mutable fields
@@ -44,8 +48,8 @@ public class Room {
 	public String toString() {
 		StringBuilder result = new StringBuilder("A room ");
 		result.append("of type ").append(name);
-		result.append("with the following doors: ");
-		doors.keySet().forEach((key) -> result.append(key.toString()));
+		result.append(" with the following doors: ");
+		doors.keySet().forEach((key) -> result.append(key.toString() + " "));
 		return result.toString();
 	}
 }
