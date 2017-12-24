@@ -8,6 +8,8 @@ import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 
+import sineSection.util.LogWriter;
+
 /**
  * 
  * A file reader class to read a single file and make it accessible to parsers.
@@ -51,10 +53,12 @@ public class FileReader {
 	 * @return this file reader for ease of accessibility
 	 */
 	public FileReader loadNextLine() {
-		String tempLine = lines.get(radix++);
-		if (tempLine == null)
-			tempLine = END_OF_FILE;
-		line = tempLine;
+		radix++;
+		if(radix < lines.size()) {
+			line = lines.get(radix);
+		} else {
+			line = END_OF_FILE;
+		}
 		return this;
 	}
 
@@ -97,7 +101,7 @@ public class FileReader {
 		for (int i = 0; i < data.length; i++) {
 			result[i + 1] = data[i];
 		}
-
+		LogWriter.print(Arrays.toString(result));
 		return result;
 	}
 
@@ -109,7 +113,7 @@ public class FileReader {
 	 */
 	public String[] getLineAsTitled() {
 		String[] titled = line.split(NAME_SEPARATION);
-		System.out.println(Arrays.toString(titled));
+		LogWriter.print(Arrays.toString(titled));
 		if (titled.length == 1) { //If There was no title, only data
 			String[] temp = new String[2];
 			temp[1] = titled[0];
@@ -134,5 +138,15 @@ public class FileReader {
 	 */
 	public List<String> getLines() {
 		return lines;
+	}
+
+	/**
+	 * Go to the first line in the file. Resets the iteration location.
+	 * @return this FileReader
+	 */
+	public FileReader loadFirstLine() {
+		radix = 0;
+		line = lines.get(radix);
+		return this;
 	}
 }
