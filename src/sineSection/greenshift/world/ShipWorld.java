@@ -15,7 +15,7 @@ public class ShipWorld {
 
 	public ShipWorld() {
 		gen = new MapGenerator(DEFAULT_SEED);
-		roomGen = new RoomGenerator();
+		roomGen = new RoomGenerator(gen.getBiomeGen().getSaveableBiomes());
 		rooms = new HashMap<>();
 	}
 
@@ -34,6 +34,10 @@ public class ShipWorld {
 
 	public Room getRoom(Pos pos) {
 		return rooms.get(pos);
+	}
+	
+	public RoomGenerator getRoomGen() {
+		return roomGen;
 	}
 
 	/**

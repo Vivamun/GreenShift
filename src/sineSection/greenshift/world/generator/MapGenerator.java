@@ -3,6 +3,7 @@ package sineSection.greenshift.world.generator;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -10,9 +11,11 @@ import java.util.Random;
 import sineSection.greenshift.ApplicationData;
 import sineSection.greenshift.GreenShift;
 import sineSection.greenshift.launcher.FileReader;
+import sineSection.greenshift.launcher.parser.RoomParser;
 import sineSection.greenshift.world.Direction;
 import sineSection.greenshift.world.Doorway;
 import sineSection.greenshift.world.Pos;
+import sineSection.greenshift.world.Room;
 
 public class MapGenerator {
 
@@ -24,7 +27,7 @@ public class MapGenerator {
 	public MapGenerator(long seed) {
 		this.seed = seed;
 		seedGenerator = new Random(seed);
-		biomeGenerator = new BiomeGenerator(ApplicationData.readFile("biomes.txt"));
+		biomeGenerator = new BiomeGenerator(ApplicationData.readFile("rooms" + File.separator + "biomes.txt"));
 		pathGenerator = new PathGenerator();
 	}
 
@@ -87,9 +90,10 @@ public class MapGenerator {
 		private final Random biomeGrabber; // a random generator for selecting
 											// which biome from the possible
 											// group to use.
+		private List<String> biomesToSave = new LinkedList<>();
 
 		public BiomeGenerator(File readFile) {
-
+			//TODO: replace with parser call
 			// set up data storage
 			biomeGroups = new HashMap<>();
 			// initialize the random with a new seed from the map generator
@@ -101,7 +105,7 @@ public class MapGenerator {
 			System.out.println(dataReader.getLines().toString());
 
 			// find out how many generators we need to use
-			complexity = dataReader.loadNextLine().getLineAsData().length;
+			complexity = dataReader.loadFirstLine().getLineAsData().length;
 
 			// Load data into collections
 			noiseGenerators = new OpenSimplexNoise[complexity];
@@ -110,14 +114,28 @@ public class MapGenerator {
 			}
 			precision = loadBiomes();
 		}
+		
+		public BiomeGenerator(int complexity, int[] precision, Map<String, List<String>> data) {
+			//TODO: call this from parser
+			dataReader = null;
+			
+			this.complexity = complexity;
+			this.precision = precision;
+			biomeGroups = data;
+			
+			noiseGenerators = new OpenSimplexNoise[complexity];
+			for (int i = 0; i < complexity; i++) {
+				noiseGenerators[i] = new OpenSimplexNoise(getNewSeed());
+			}
+			biomeGrabber = new Random(getNewSeed());
+		}
 
 		private int[] loadBiomes() {
 			//TODO: use Biome Parser instead of handling locally.
 			int[] tempPrecision = new int[complexity];
-			String[] data = {
-					""
-			};
-			while (data[0] != FileReader.END_OF_FILE) {
+			String[] data = dataReader.loadNextLine().getLineAsValues();
+			
+			while (!data[1].contains(FileReader.END_OF_FILE)) {
 				String name = data[0];
 				int[] values = new int[complexity];
 				for (int i = 0; i < complexity; i++) {
@@ -136,6 +154,8 @@ public class MapGenerator {
 			String key = valuesToKey(values);
 			biomeGroups.putIfAbsent(key, new ArrayList<>());
 			biomeGroups.get(key).add(biomeName);
+			
+			biomesToSave.add(biomeName);
 		}
 
 		private String valuesToKey(int[] values) {
@@ -186,6 +206,10 @@ public class MapGenerator {
 
 		public String getBiomeAt(int x, int z) {
 			return getRandomBiomeName(getBiomeNames(getValuesAt(x, z)));
+		}
+		
+		public List<String> getSaveableBiomes() {
+			return biomesToSave;
 		}
 
 	}
