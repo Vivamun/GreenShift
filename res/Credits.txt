@@ -32,6 +32,9 @@ GREENSHIFT MK II
 		DMWCincy
 		Geekman9097
 		Richie_TheRich
+
+	QA Lead:
+		DMWCincy
 	
 	Open Simplex Noise Courtesy Kurt Spencer
 		https://gist.github.com/KdotJPG/b1270127455a94ac5d19
