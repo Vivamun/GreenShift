@@ -1,37 +1,45 @@
 package sineSection.greenshift.world;
 
 public class Doorway {
-	private Pos a;
-	private Pos b;
 	/**
 	 * The direction to go from room a to room b. Used later to allow the Room
 	 * to simply reference when applying this door, So as to prevent the room
 	 * AND this class from having to track the direction. Instead, Query the
 	 * Doorway.
 	 */
-	private Direction dir;
+	private final Direction dir;
+	private final Room genFrom;
+	private boolean blocked;
 
-	public Doorway(Pos a, Pos b, Direction dir) {
-		this.a = a;
-		this.b = b;
+	public Doorway(Room generatedFrom, Direction dir) {
+		this(generatedFrom, dir,false);
+	}
+	
+	public Doorway(Room generatedFrom, Direction dir, boolean blocked) {
+		this.genFrom = generatedFrom;
 		this.dir = dir;
-	}
-
-	public Pos getRoomA() {
-		return a;
-	}
-
-	public Pos getRoomB() {
-		return b;
+		this.blocked = blocked;
 	}
 
 	public Direction getDirection() {
 		return dir;
 	}
+	
+	public Room getGenFrom() {
+		return genFrom;
+	}
 
-	public Room use(/* TODO: args */) {
+	/**
+	 * 
+	 * @return true if the player passed through successfully. false if not.
+	 */
+	public boolean use(/* TODO: args */) {
 		// TODO: Return the room the user is NOT in, or Block them.
-		return null;
+		if(blocked) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 }

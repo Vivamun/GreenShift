@@ -53,14 +53,14 @@ public class MapGenerator {
 	 */
 	public class PathGenerator {
 
-		public Doorway generateDoor(Pos position, Direction out) {
+		public Doorway generateDoor(Room generateFrom, Direction out) {
 			// Intermediary method. When asking if a door should be made, always
 			// says yes, and give a new door.
 			// TODO: Implement properly to guarantee an interesting, but wholly
 			// connected, map.
 			// TODO: If a door already exists between the two rooms, return that
 			// one, rather than giving a new doorway
-			return new Doorway(position, position.move(out), out);
+			return new Doorway(generateFrom, out);
 		}
 
 	}

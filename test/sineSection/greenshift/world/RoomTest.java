@@ -35,4 +35,23 @@ class RoomTest {
 	void testCopyDescription() {
 		assertEquals(underTest.copy().getDescription(),TEST_DESC);
 	}
+	
+	@Test
+	void testDoor() {
+		Doorway testDoor = new Doorway(underTest,Direction.FORE);
+		underTest.addDoorway(testDoor);
+		assertEquals(testDoor,underTest.getDoor(Direction.FORE));
+	}
+	
+	@Test
+	void testNoDoor() {
+		assertNull(underTest.getDoor(Direction.FORE));
+	}
+	
+	@Test
+	void testElsewhereDoor() {
+		Doorway testDoor = new Doorway(underTest,Direction.FORE);
+		underTest.addDoorway(testDoor);
+		assertNull(underTest.getDoor(Direction.AFT));
+	}
 }

@@ -18,7 +18,7 @@ public class GreenShift {
 	public static final boolean LAUNCHABLE = false;
 	public static boolean TESTING;
 
-	public static GreenShift gameInstance;
+	private static GreenShift gameInstance;
 	private final ShipWorld world;
 
 	public static void main(String[] args) {
@@ -75,11 +75,15 @@ public class GreenShift {
 		// } catch (InterruptedException e) {
 		// e.printStackTrace();
 		// }
-		new GreenShift();
+
+		gameInstance = new GreenShift();
+	}
+	
+	public static GreenShift getGameInstance() {
+		return gameInstance;
 	}
 
 	public GreenShift() {
-		gameInstance = this;
 		world = new ShipWorld();
 		world.loadTestEnv();
 	}

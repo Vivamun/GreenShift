@@ -10,7 +10,6 @@ public class RoomParser extends Parser {
 	private static final String NAME_TEXT = "Name";
 	private static final String DESC_TEXT = "Description";
 	
-	private File readFile;
 	
 	public Room parse(File readFile) {
 		String name = "";

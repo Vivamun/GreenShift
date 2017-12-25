@@ -20,7 +20,7 @@ public class Room {
 	}
 
 	public void addDoorway(Doorway door) {
-		if (door.getRoomA().equals(this)) {
+		if(door.getGenFrom().equals(this)) {
 			doors.put(door.getDirection(), door);
 		} else {
 			doors.put(door.getDirection().getOpposite(), door);
@@ -33,6 +33,10 @@ public class Room {
 	
 	public String getDescription() {
 		return description;
+	}
+	
+	public Doorway getDoor(Direction dir) {
+		return doors.get(dir);
 	}
 
 	/**

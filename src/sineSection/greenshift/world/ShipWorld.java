@@ -23,7 +23,7 @@ public class ShipWorld {
 		String biome = gen.getBiomeGen().getBiomeAt(x, z);
 		Room newRoom = roomGen.getNewRoom(biome);
 		for (Direction dir : Direction.values()) {
-			newRoom.addDoorway(gen.getPathGen().generateDoor(new Pos(x, z), dir));
+			newRoom.addDoorway(gen.getPathGen().generateDoor(newRoom, dir));
 		}
 		rooms.put(new Pos(x, z), newRoom);
 	}

@@ -3,12 +3,9 @@ package sineSection.greenshift.launcher;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
-
-import sineSection.util.LogWriter;
 
 /**
  * 
